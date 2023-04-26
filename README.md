@@ -1,23 +1,61 @@
-# README
+# Nut Transporter
+A Ruby on Rails project that calculates the maximum amount of nuts that can be transported to a town from a pile of nuts in an oasis across a desert, given the distance between the town and the pile, the amount of nuts in the pile, the amount of nuts consumed by the horse per kilometer traveled, and the capacity of the cart that carries the nuts.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Installation
+1. Clone the repository or download the source code.
+2. Install Ruby on Rails and its dependencies.
+3. Install the required gems by running `bundle install` in the terminal.
+4. Run the database migrations by running `rails db:migrate` in the terminal.
+5. Start the Rails server by running `rails server` in the terminal.
 
-Things you may want to cover:
+## Usage
+### Rake Task
+To use the Rake task, run the following command in the terminal:
 
-* Ruby version
+```
+rails nuts:calculate[directory/input.txt]
+```
 
-* System dependencies
+Where `directory/filename.txt` is the path to the input file
 
 * Configuration
 
-* Database creation
+## Sample Input and Output
+### Input:
 
-* Database initialization
+```
+1000,3000,1,1000
+1000,7000,1,1000
+1000,100000,1,1000
+1111,3000,1,1000
+1000,3000,1,1111
+1111,3334,3,4444
+111,3333,3,2222
+111,3333,3,1000
+10000,1111111,3,1111
+10000,1111111,5,1111
+1000,1000000,2,1000
+1111,22222222,5,3333
+1000,12000,5,3000
+```
 
-* How to run the test suite
+### Output:
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+1000,3000,1,1000,0
+1000,7000,1,1000,0
+1000,100000,1,1000,0
+1111,3000,1,1000,0
+1000,3000,1,1111,0
+1111,3334,3,4444,1
+111,3333,3,2222,2334
+111,3333,3,1000,1335
+10000,1111111,3,1111,0
+10000,1111111,5,1111,0
+1000,1000000,2,1000,0
+1111,22222222,5,3333,0
+1000,12000,5,3000,0
+```
 
 * Deployment instructions
 
