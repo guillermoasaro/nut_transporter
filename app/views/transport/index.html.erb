@@ -1,0 +1,39 @@
+<h1>Nut Transporter</h1>
+<h2>Calculate the maximum amount of nuts that can be transported to the town</h2>
+
+<%= form_tag transport_calculate_max_nuts_path, method: :post do %>
+  <p>
+    <%= label_tag :input, "Input:" %><br>
+    <%= text_area_tag :input, "", rows: 10, cols: 50 %>
+  </p>
+
+  <div class="actions">
+    <%= submit_tag "Calculate" %>
+  </div>
+<% end %>
+
+<% if @results.present? %>
+  <h2>Results:</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Distance</th>
+        <th>Nuts Amount</th>
+        <th>Fuel Consumption</th>
+        <th>Cart Capacity</th>
+        <th>Max Nuts</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @results.each_with_index do |result, index| %>
+        <tr <%= "class=alt-row" if index.odd? %>>
+          <td><%= result[0] %></td>
+          <td><%= result[1] %></td>
+          <td><%= result[2] %></td>
+          <td><%= result[3] %></td>
+          <td><b><%= result[4] %></b></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

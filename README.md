@@ -18,7 +18,11 @@ rails nuts:calculate[directory/input.txt]
 
 Where `directory/filename.txt` is the path to the input file
 
-* Configuration
+### Web Application
+1. Start the Rails server by running rails server in the terminal.
+2. Open a web browser and go to http://localhost:3000.
+3. Enter the input values in the textarea and click the "Calculate" button.
+4. The results will be displayed on the same page.
 
 ## Sample Input and Output
 ### Input:
@@ -57,6 +61,7 @@ Where `directory/filename.txt` is the path to the input file
 1000,12000,5,3000,0
 ```
 
-* Deployment instructions
-
-* ...
+## Testing
+```
+rspec
+```
